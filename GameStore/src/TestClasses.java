@@ -5,9 +5,9 @@ public class TestClasses {
 		
 		String name = "balsal";
 		
-		if(name.indexOf([0-9]) == -1) {
-			System.out.println("Bal");
-		}
+		//if(name.indexOf([0-9]) == -1) {
+		//	System.out.println("Bal");
+		//}
 
 	}
 

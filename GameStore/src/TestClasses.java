@@ -8,6 +8,9 @@ public class TestClasses {
 		//if(name.indexOf([0-9]) == -1) {
 		//	System.out.println("Bal");
 		//}
+		
+		System.out.println(name);
+		
 
 	}
 

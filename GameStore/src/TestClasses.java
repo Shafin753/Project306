@@ -9,9 +9,10 @@ public class TestClasses {
 		//	System.out.println("Bal");
 		//}
 		
-		System.out.println(name);
-		// hello123
-		System.out.println(name);
+		Game game = new Game("balsal", 10.99, "Date", true);
+		
+		System.out.println(game.toString());
+		
 
 	}
 

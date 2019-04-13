@@ -21,7 +21,7 @@ public abstract class Item {
 	public String getName() {return this.name;}
 	public double getPrice() {return this.price;}
 	public String getDate() {return this.date;}
-	public int getNumItems() {return this.numItems;}
+	public int getNumItems() {return numItems;}
 	
 	public void setName(String name)
 	{

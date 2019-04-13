@@ -3,7 +3,7 @@ public abstract class Item {
 	private String name;
 	private double price;
 	private String date;
-	private int numItems;
+	private static int numItems;
 	
 	public Item(String name, double price, String date)
 	{

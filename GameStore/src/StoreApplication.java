@@ -14,7 +14,7 @@ public class StoreApplication {
 	      while (menuChoice != 5) {
 	         switch(menuChoice) {
 	            case 1:
-	               //addUser
+	               User user = getUser();
 	               break;
 	               
 	             case 2:
@@ -34,9 +34,29 @@ public class StoreApplication {
 	               throw new RuntimeException("Unknown error in menu choice");
 	         
 	         }menuChoice = getMenuOption(); 
+	      }     
 	}
-	      
+	
+	
+	public static User getUser() {
+		User auser=  new User();
+		try {
+			auser.setFirstName(JOptionPane.showInputDialog("Enter users first name"));
+			auser.setLastName(JOptionPane.showInputDialog("Enter users last name"));
+			auser.setAddress(JOptionPane.showInputDialog("Enter the users address"));
+			auser.setPhoneNumber(JOptionPane.showInputDialog("Enter users last name"));
+			do {
+				
+			}while (JOptionPane.showConfirmDialog(null, "Would you like to enter another Server?", "Create Server",
+			         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
+		}
+		catch(IllegalArgumentException e){
+			JOptionPane.showMessageDialog(null, "User can not be created " + e.getMessage());
+		}
+		return auser;
 	}
+	
+	
 	public static int getMenuOption() {
 		      int menuChoice;
 				

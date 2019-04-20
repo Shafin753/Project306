@@ -23,6 +23,7 @@ public class StoreApplication {
 	               
 	            case 3:
 	               //Print just the item in a text file
+	            	Item aItem = getItem();
 	               break;
 	            
 	            case 4:
@@ -80,5 +81,29 @@ public class StoreApplication {
 		      } while (menuChoice < 1 || menuChoice > 5);
 		      
 		      return menuChoice;
+	}
+	
+	public static Item getItem()
+	{
+		Item aItem = new Item();
+		String name;
+		String date;
+		double price;
+		do
+		{
+			try
+			{
+			    aItem.setName(JOptionPane.showInputDialog(null, "Enter item name: "));
+				aItem.setPrice(Double.parseDouble(JOptionPane.showInputDialog(null, "Enter the price of the item: ")));
+				aItem.setDate(JOptionPane.showInputDialog(null,"Enter today's date: \n Date should be in the format mm/dd/yyyy"));
+			}
+			catch(IllegalArgumentException e)
+			{
+				JOptionPane.showMessageDialog(null, "Item couldn't be added, " + e.getMessage());
+			}
+		}
+		while(JOptionPane.showConfirmDialog(null, "Do you want to add another Item?")==JOptionPane.YES_OPTION);
+		return aItem;
+	//end getItem
 	}
 }

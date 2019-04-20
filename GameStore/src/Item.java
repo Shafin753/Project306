@@ -1,22 +1,24 @@
 //This is a DDC for Item class
-public abstract class Item {
+public class Item {
 	private String name;
 	private double price;
 	private String date;
 	private static int numItems;
 	
+	public Item (){numItems++;}
 	public Item(String name, double price, String date)
 	{
+		this();
 		if(name == null || name.equals(""))
 			throw new IllegalArgumentException("Name cannot be null");
 		if(price<=0)
 			throw new IllegalArgumentException("Price cannot be zero or less");
 		if(date == null || date.equals(""))
-			throw new IllegalArgumentException("Name cannot be null");
+			throw new IllegalArgumentException("Date cannot be null");
 		this.name = name;
 		this.price = price;
 		this.date = date;
-		numItems++;
+		//numItems++;
 	}
 	public String getName() {return this.name;}
 	public double getPrice() {return this.price;}

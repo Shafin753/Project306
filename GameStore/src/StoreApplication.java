@@ -30,7 +30,7 @@ public class StoreApplication {
 	               //Print just the item in a text file
 	               writingFile(itemList,itemsPath);
 	               break;
-	            
+	               		//
 	            case 4:
 	               //sort the items and print in a text file 
 	               break;

@@ -1,7 +1,8 @@
 //This is a DDC for Item class
+
 public class Item {
 	private String name;
-	private double price;
+	double price;
 	private String date;
 	private static int numItems;
 	
@@ -43,6 +44,7 @@ public class Item {
 			throw new IllegalArgumentException("Date cannot be null");
 		this.date = date;
 	}
+
 	public String toString()
 	{
 		return "Item name: " + this.getName() + "\n Item price: " + this.getPrice() + "\n Date added: " + this.getDate(); 

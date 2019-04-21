@@ -1,6 +1,6 @@
 //This is a DDC for Item class
 
-public class Item {
+public abstract class  Item {
 	private String name;
 	double price;
 	private String date;
@@ -19,7 +19,7 @@ public class Item {
 		this.name = name;
 		this.price = price;
 		this.date = date;
-		//numItems++;
+		numItems++;
 	}
 	public String getName() {return this.name;}
 	public double getPrice() {return this.price;}

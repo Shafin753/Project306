@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 import java.awt.event.ItemListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+=======
+
+>>>>>>> branch 'master' of https://github.com/Shafin753/Project306.git
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileWriter;
 public class StoreApplication {
 	
 	public static void main(String[] args) {
@@ -18,8 +27,12 @@ public class StoreApplication {
 	      while (menuChoice != 5) {
 	         switch(menuChoice) {
 	            case 1:
+<<<<<<< HEAD
 	               User user = getUser(itemList); // passing itemList so that items can be stored in a different list than users
 	               userList.add(user);
+=======
+	               getUser(userList); //adds user in arrayList
+>>>>>>> branch 'master' of https://github.com/Shafin753/Project306.git
 	               break;
 	               
 	             case 2:
@@ -28,11 +41,16 @@ public class StoreApplication {
 	               
 	            case 3:
 	               //Print just the item in a text file
+<<<<<<< HEAD
 	               writingFile(itemList,itemsPath);
+=======
+	            	getItem(itemList);  //adds item in a arrayList and sorts them based on price
+>>>>>>> branch 'master' of https://github.com/Shafin753/Project306.git
 	               break;
 	               		//
 	            case 4:
 	               //sort the items and print in a text file 
+	            	 storeItemFile(itemList, items);
 	               break;
 	               
 	            default:
@@ -53,6 +71,20 @@ public class StoreApplication {
 			}
 			pw.close();
 	
+<<<<<<< HEAD
+=======
+	public static void getUser(ArrayList<User>userList) {
+		User auser=  new User();
+		try {
+			auser.setFirstName(JOptionPane.showInputDialog("Enter users first name"));
+			auser.setLastName(JOptionPane.showInputDialog("Enter users last name"));
+			auser.setAddress(JOptionPane.showInputDialog("Enter the users address"));
+			auser.setPhoneNumber(JOptionPane.showInputDialog("Enter users last name"));
+			do {
+				
+			}while (JOptionPane.showConfirmDialog(null, "Would you like to enter another Server?", "Create Server",
+			         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
+>>>>>>> branch 'master' of https://github.com/Shafin753/Project306.git
 		}
 		catch(FileNotFoundException e){
 			e.printStackTrace(); 
@@ -108,7 +140,7 @@ public class StoreApplication {
 		}catch(IllegalArgumentException e){
 			JOptionPane.showMessageDialog(null, "User can not be created " + e.getMessage());
 		}
-		return auser;
+		userList.add(auser);
 	}
 	
 	
@@ -135,5 +167,67 @@ public class StoreApplication {
 		      } while (menuChoice < 1 || menuChoice > 5);
 		      
 		      return menuChoice;
+	}
+	
+	public static void getItem(ArrayList<Item> itemList)
+	{
+		Item aItem = new Item();
+		String name;
+		String date;
+		double price;
+		do
+		{
+			try
+			{
+			    aItem.setName(JOptionPane.showInputDialog(null, "Enter item name: "));
+				aItem.setPrice(Double.parseDouble(JOptionPane.showInputDialog(null, "Enter the price of the item: ")));
+				aItem.setDate(JOptionPane.showInputDialog(null,"Enter today's date: \n Date should be in the format mm/dd/yyyy"));
+			}
+			catch(IllegalArgumentException e)
+			{
+				JOptionPane.showMessageDialog(null, "Item couldn't be added, " + e.getMessage());
+			}
+		}
+		while(JOptionPane.showConfirmDialog(null, "Do you want to add another Item?")==JOptionPane.YES_OPTION);
+		itemList.add(aItem);
+		
+		/*Collections.sort(itemList, new Comparator<Item>() {
+			public int compare(Item i1, Item i2)
+			{
+				return Integer.valueOf(i1.getPrice().compareTo(i2.getPrice()));
+			}
+		});*/
+	}
+	
+	public static void storeItemFile(ArrayList<Item>itemList, String items)
+	{
+		for(int i=1;i<itemList.size();i++)
+		{
+			int k = i;
+			while(k>0&&itemList.get(k).getPrice()<itemList.get(k-1).getPrice())
+			{
+				Item temp = itemList.get(k-1);
+				//itemList(k-1)==itemList.add.get(k);
+				//itemList(k) = temp;
+				itemList.set(k, itemList.get(k-1));
+				k--;
+			}
+			//itemList.set(k, items);
+		}
+		JOptionPane.showMessageDialog(null, itemList.get(0));
+		try {
+			FileOutputStream fileIn = new FileOutputStream(items);
+			PrintWriter pw = new PrintWriter(fileIn);
+			for(int i=0; i<itemList.size();i++)
+			{
+				pw.write(itemList.get(i)+ "\n");
+			}
+			pw.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 }

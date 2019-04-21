@@ -19,7 +19,7 @@ public class Merchandice extends Item {
 	
 	public String toString() {
 		
-		return super.toString() + "\nCondition New: " + this.conditionNew;
+		return super.toString() + "; Condition New: " + this.conditionNew;
 	}
 
 }

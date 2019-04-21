@@ -1,5 +1,8 @@
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
 
 public class TestClasses {
 
@@ -11,7 +14,7 @@ public class TestClasses {
 		//	System.out.println("Bal");
 		//}
 		
-		Game game = new Game("balsal", 10.99, "Date", true);
+		//Game game = new Game("balsal", 10.99, "Date", true);
 		
 		//System.out.println(game.toString());
 		
@@ -49,16 +52,22 @@ public class TestClasses {
 	     user2.setItem(item);
 	     user2.setItem(item2);
 	     
+	     //System.out.println(user.toString());
 	     
-	     System.out.println(user.toString());
-	     
-	     
-	     
-	       
-	   
+	     //int ifNew = JOptionPane.showConfirmDialog(null, "Is the condition new?", "Please select",JOptionPane.YES_NO_OPTION);
+	     //System.out.println(ifNew);
 		
 	        
-	        
+	     ArrayList<String> itemList = new ArrayList<String>();
+	     
+	     itemList.add("Shafin");
+	     itemList.add("Haque");
+	     
+	     
+	     for(int i=0; i<itemList.size(); i++){
+	    	 System.out.println("Paici");
+			}
+	     
 
 	}
 	

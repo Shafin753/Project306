@@ -43,7 +43,7 @@ public abstract class Item {
 	}
 	public String toString()
 	{
-		return "Item name: " + this.getName() + "\n Item price: " + this.getPrice() + "\n Date added: " + this.getDate(); 
+		return "Item name: " + this.getName() + "; Item price: " + this.getPrice() + "; Date added: " + this.getDate(); 
 	}
 
 }

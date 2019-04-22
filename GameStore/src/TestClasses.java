@@ -1,12 +1,22 @@
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
 public class TestClasses {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+		String itemsPath = "./src/item.txt";
 		
 		//String name = "balsal";
 		
@@ -58,16 +68,47 @@ public class TestClasses {
 	     //System.out.println(ifNew);
 		
 	        
-	     ArrayList<String> itemList = new ArrayList<String>();
+	     ArrayList<Item> itemList = new ArrayList<Item>();
 	     
-	     itemList.add("Shafin");
-	     itemList.add("Haque");
+	     //itemList.add("Shafin");
+	     //itemList.add("Haque");
 	     
 	     
-	     for(int i=0; i<itemList.size(); i++){
-	    	 System.out.println("Paici");
+	    // writingFile(itemList,itemsPath);
+	     
+	     
+	     //for(int i=0; i<itemList.size(); i++){
+	    //	 System.out.println("Paici");
+		//	}
+	     BufferedReader br = new BufferedReader(new FileReader(new File(itemsPath)));
+			String line;
+			Scanner scan = null;
+			//int count = 0;
+			//while( (line = br.readLine()) != null) {
+			//	count++;
+			//}
+			
+			br = new BufferedReader(new FileReader(new File(itemsPath)));
+			Item a= null;
+			String itemName;
+			double price;
+			String date;
+			boolean condition;
+			int i = 0;
+			while((line = br.readLine()) != null) {
+				scan = new Scanner(line);
+				scan.useDelimiter(";");
+				itemName = scan.next().trim();
+				price = Double.parseDouble(scan.next().trim());
+				date = scan.next().trim();
+				condition = scan.next().trim() != null;
+				a = new Game(itemName,price,date,condition);
 			}
-	     
+			
+			
+			System.out.println(a.toString());
+			
+			
 
 	}
 	
@@ -78,5 +119,47 @@ public class TestClasses {
 		   boolean found =  digit.matcher(name).find() || special.matcher(name).find();
 		   return found;	  
 	 }  
+	 
+		public static String getStudents(String path, ArrayList<Item> itemList) throws FileNotFoundException, IOException{
+			BufferedReader br = new BufferedReader(new FileReader(new File(path)));
+			String line;
+			Scanner scan = null;
+			int count = 0;
+			while( (line = br.readLine()) != null) {
+				count++;
+			}
+			
+			br = new BufferedReader(new FileReader(new File(path)));
+			Item s;
+			String name;
+			double price;
+			String date;
+			boolean condition;
+			int i = 0;
+			while((line = br.readLine()) != null) {
+				scan = new Scanner(line);
+				scan.useDelimiter(":");
+				name = scan.next().substring(3).trim();
+				price = Double.parseDouble(scan.next().trim());
+				
+			}
+			return "Hello";
+		}
+	 
+		public static void writingFile(ArrayList<String> itemList, String outPath) {
+			try{
+			
+				FileOutputStream fis =new FileOutputStream(outPath);
+				PrintWriter pw = new PrintWriter(fis);
+				for(int i=0; i<itemList.size(); i++){
+					pw.write(itemList.get(i).toString() +"\n");
+				}
+				pw.close();
+		
+			}
+			catch(FileNotFoundException e){
+				e.printStackTrace(); 
+			}
+		}
 	 
 }

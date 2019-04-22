@@ -6,10 +6,8 @@ public abstract class  Item {
 	private String date;
 	private static int numItems;
 	
-	public Item (){numItems++;}
 	public Item(String name, double price, String date)
 	{
-		this();
 		if(name == null || name.equals(""))
 			throw new IllegalArgumentException("Name cannot be null");
 		if(price<=0)
@@ -47,7 +45,7 @@ public abstract class  Item {
 
 	public String toString()
 	{
-		return "Item name: " + this.getName() + "; Item price: " + this.getPrice() + "; Date added: " + this.getDate(); 
+		return this.getName() + "; " + this.getPrice() + "; " + this.getDate(); 
 	}
 
 }

@@ -3,7 +3,7 @@ import java.util.regex.Pattern;
 public class User {
 	private String firstName;
 	private String lastName;
-	private static int userID;
+	private int userID;
 	private String address;
 	private String phoneNumber;
 	private Item[] items;
@@ -20,7 +20,7 @@ public class User {
 	public String getLastName() {return this.lastName;}
 	public String getAddress() {return this.address;}
 	public String getPhoneNumber() {return this.phoneNumber;}
-	public static int getUserID() {return userID;}
+	public int getUserID() {return this.userID;}
 	public int getNumItems() {return this.numItems;}
 	public Item getItem(int index) {
 		if (index < 0 || index >= this.getNumItems()) {

@@ -19,6 +19,6 @@ public class Hardware extends Item {
 	
 	public String toString() {
 		
-		return super.toString() + "; Condition New: " + this.conditionNew;
+		return super.toString() + "; " + this.conditionNew;
 	}
 }

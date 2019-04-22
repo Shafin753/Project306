@@ -1,0 +1,17 @@
+ ID : 1
+ First Name: Prati
+ Last Name: Sharma
+ Address: 1234 Address Blvd
+ PhoneNumber: 5710002234
+  ------------------
+ Item number 1
+xBox; 60.0; 11/02/2019; true
+  ------------------
+  ------------------
+ Item number 2
+Charger; 20.0; 11/02/2018; true
+  ------------------
+  ------------------
+ Item number 3
+Fan; 54.0; 01/02/2018; false
+  ------------------

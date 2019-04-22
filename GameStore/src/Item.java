@@ -3,7 +3,7 @@
  *  Game, Hardware, and Merchandice.
  * @author Asraful Haque Shafin, Pratikchha Dhungana
  */
-public abstract class  Item {
+public abstract class  Item implements Comparable<Item> {
 	//declaring variables
 	private String name;
 	double price;
@@ -81,6 +81,20 @@ public abstract class  Item {
 	public String toString()
 	{
 		return this.getName() + "; " + this.getPrice() + "; " + this.getDate(); 
+	}
+	
+	/*
+	 * Compares two objects and returns integer
+	 * @param o is the object 
+	 */
+	public int compareTo(Item o)
+	{
+		if(this.getName().compareToIgnoreCase(o.getName())<0)
+			return -1;
+		else if (this.getName().compareToIgnoreCase(o.getName())>0)
+			return 1;
+		else 
+			return 0;
 	}
 //end class
 }

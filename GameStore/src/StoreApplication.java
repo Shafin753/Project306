@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -48,6 +49,7 @@ public class StoreApplication {
 	               break;
 	            case 4:
 	               //sort the just items and display the sorted list
+	            	sortItems(itemList);
 	               break;
 	            	
 	            default:
@@ -253,5 +255,95 @@ public class StoreApplication {
 		      
 		      return menuChoice;
 	}
+	
+	/*
+	 * Sorts items on the arrayList based on name and price of the item
+	 * Prints message if the itemList is empty
+	 * @param itemList is the arrayList that contains Item 
+	 * @return none
+	 */
+	public static void sortItems(ArrayList<Item>itemList)
+	{
+		if(itemList.size()==0)
+		{
+			JOptionPane.showMessageDialog(null, "No item is stored in the Item list; try adding items first");
+		}
+		else {
+				int option = Integer.parseInt(JOptionPane.showInputDialog(null, "Select one of the following option(1 or 2) to sort item: \n 1. By Name \n 2. By Price" ));
+				if(option==1 || option==2)
+				{
+					if(option==1) 
+						sortByName(itemList); //calls method to sort item by name
+					else
+						sortByPrice(itemList); //calls method to sort item by price
+				}
+				else
+					JOptionPane.showMessageDialog(null, "You entered invalid option"); //invalid option selected
+		}
+	}
+	
+	/*
+	 * This method sorts and prints object in itemList by price
+	 * @param itemList is the arrayList that stored items 
+	 * @return none
+	 */
+   	public static void sortByPrice(ArrayList<Item>itemList)
+	{
+		for(int i=0;i<itemList.size();i++)
+		{
+			int k = i;
+			for(int j=i; j<itemList.size(); j++)
+			{
+				if(itemList.get(j).getPrice()<itemList.get(k).getPrice())
+				{
+					k=j;
+				}
+			}
+			Item temp = itemList.get(k);
+			itemList.set(k, itemList.get(i));
+			itemList.set(i,temp);
+		}
+		//accumulating and printing sorted item based on price
+		String output = "Items are sorted based on Price: \n"; 
+		for(int i=0; i<itemList.size(); i++){
+		  	output += "Item Name : " + itemList.get(i).getName()
+		  		 +  "\nPrice : "    + itemList.get(i).getPrice()
+		  		 +  "\nDate : "    + itemList.get(i).getDate()
+		  		 +  "\nNew Condition : "    + itemList.get(i).getPrice()
+		  		 + "\n______________________\n"; 			
+		}
+		
+		JOptionPane.showMessageDialog(null,output);
+	 }
+   	
+   	/*
+   	 * This method sorts Item by their name and prints them to the user
+   	 * @param itemList is the arrayList that stores Item
+   	 * @return none
+   	 */
+   	public static void sortByName(ArrayList<Item>itemList)
+   	{
+   		for(int i=0;i<itemList.size();i++)
+   		{
+   			int k = i;
+   			for(int j=i; j<itemList.size();j++)
+   			{
+   				if(itemList.get(j).getName().compareTo(itemList.get(k).getName())<0)
+   					k=j;
+   			}
+   			Item temp = itemList.get(k);
+   			itemList.set(k, itemList.get(i));
+   			itemList.set(i, temp);
+   		}
+   		//accumulating and printing sorted items based on name
+        String output = "Items are sorted based on name: \n";
+        Iterator<Item> it = itemList.iterator();
+        while(it.hasNext())
+        {
+           output += it.next() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, output);
+        
+       }
 //end class
 }

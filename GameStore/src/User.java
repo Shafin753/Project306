@@ -135,7 +135,7 @@ public class User {
 	  * @return output which contains information about User
 	  */
 	 public String toString() {
-		 String output = " ID : " + this.getUserID()
+		 String output = "\n ID : " + this.getUserID()
 		 + "\n First Name: " + this.getFirstName()
 		 + "\n Last Name: " + this.getLastName()
 		 + "\n Address: " + this.getAddress()

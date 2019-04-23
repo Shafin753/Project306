@@ -13,7 +13,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -69,7 +68,7 @@ public class StoreApplication {
 	public static void displayUser(ArrayList<User> userList) {
 		String output = "";
 		for(int i=0; i<userList.size(); i++){
-		  	output += userList.toString();		
+		  	output += userList.get(i).toString();		
 		}
 		
 		JOptionPane.showMessageDialog(null,output);
@@ -83,10 +82,13 @@ public class StoreApplication {
 	public static void displayItem(ArrayList<Item> itemList) {
 		String output = "";
 		for(int i=0; i<itemList.size(); i++){
+			
+			String whole = itemList.get(i).toString();
+			String condition = whole.substring(whole.lastIndexOf(';')+1);
 		  	output += "Item Name : " + itemList.get(i).getName()
 		  		 +  "\nPrice : "    + itemList.get(i).getPrice()
 		  		 +  "\nDate : "    + itemList.get(i).getDate()
-		  		 +  "\nNew Condition : "    + itemList.get(i).getPrice()
+		  		 +  "\nNew Condition : "    + condition
 		  		 + "\n______________________\n"; 			
 		}
 		
@@ -306,10 +308,12 @@ public class StoreApplication {
 		//accumulating and printing sorted item based on price
 		String output = "Items are sorted based on Price: \n"; 
 		for(int i=0; i<itemList.size(); i++){
+			String whole = itemList.get(i).toString();
+			String condition = whole.substring(whole.lastIndexOf(';')+1);
 		  	output += "Item Name : " + itemList.get(i).getName()
 		  		 +  "\nPrice : "    + itemList.get(i).getPrice()
 		  		 +  "\nDate : "    + itemList.get(i).getDate()
-		  		 +  "\nNew Condition : "    + itemList.get(i).getPrice()
+		  		 +  "\nNew Condition : "    + condition
 		  		 + "\n______________________\n"; 			
 		}
 		
@@ -337,11 +341,15 @@ public class StoreApplication {
    		}
    		//accumulating and printing sorted items based on name
         String output = "Items are sorted based on name: \n";
-        Iterator<Item> it = itemList.iterator();
-        while(it.hasNext())
-        {
-           output += it.next() + "\n";
-        }
+    	for(int i=0; i<itemList.size(); i++){
+			String whole = itemList.get(i).toString();
+			String condition = whole.substring(whole.lastIndexOf(';')+1);
+		  	output += "Item Name : " + itemList.get(i).getName()
+		  		 +  "\nPrice : "    + itemList.get(i).getPrice()
+		  		 +  "\nDate : "    + itemList.get(i).getDate()
+		  		 +  "\nNew Condition : "    + condition
+		  		 + "\n______________________\n"; 			
+		}
         JOptionPane.showMessageDialog(null, output);
         
        }

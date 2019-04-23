@@ -10,6 +10,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private int userID;
+	private static int numUser;
 	private String address;
 	private String phoneNumber;
 	private Item[] items;
@@ -22,7 +23,8 @@ public class User {
 	 * @return none
 	 */
 	public User() {
-		userID++;
+		numUser++;
+		this.userID = numUser;
 		this.items = new Item[MAX_ITEMS];
 		
 	}
@@ -133,7 +135,7 @@ public class User {
 	  * @return output which contains information about User
 	  */
 	 public String toString() {
-		 String output = " ID : " + getUserID()
+		 String output = " ID : " + this.getUserID()
 		 + "\n First Name: " + this.getFirstName()
 		 + "\n Last Name: " + this.getLastName()
 		 + "\n Address: " + this.getAddress()

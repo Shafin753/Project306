@@ -106,7 +106,10 @@ public class TestClasses {
 			}
 			
 			
-			System.out.println(a.toString());
+			//System.out.println(a.toString());
+			String bal = "xBox; 60.0; 11/02/2019; false";
+			String bal3 = bal.substring(bal.lastIndexOf(';')+1);
+			System.out.println(bal3);
 			
 			
 

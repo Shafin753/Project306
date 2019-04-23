@@ -2,6 +2,8 @@
  * This is a DDC for User object. This class contains information about the User and consists of different
  * variables, constructor, and getters and setters. 
  * @author Asraful Haque Shafin, Pratikchha Dhungana
+ * ashafin@gmu.edu (G00950667)
+ * pdhungan@.gmu.edu (G00979220)
  */
 import java.util.regex.Pattern;
 

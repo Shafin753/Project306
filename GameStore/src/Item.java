@@ -2,6 +2,8 @@
  * This DDC contains information about the Item superclass. Item is abstract and has 3 subclasses:
  *  Game, Hardware, and Merchandice.
  * @author Asraful Haque Shafin, Pratikchha Dhungana
+ * ashafin@gmu.edu (G00950667)
+ * pdhungan@.gmu.edu (G00979220)
  */
 public abstract class  Item implements Comparable<Item> {
 	//declaring variables

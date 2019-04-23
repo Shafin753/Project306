@@ -1,6 +1,8 @@
 /*
  * This DDC contains information about the Game which is a subclass of Item superclass.
  * @author Asraful Haque Shafin, Pratikchha Dhungana
+ * ashafin@gmu.edu (G00950667)
+ * pdhungan@.gmu.edu (G00979220)
  */
 public class Game extends Item {
 	

@@ -4,6 +4,8 @@
  *  choose an action that they would like to perform and based on the user input it either adds items and users, sorts, or prints
  *  report. The program prompts for User and Item information if they are to be added. 
  *  @author Asraful Haque Shafin, Pratikchha Dhungana
+ *  ashafin@gmu.edu (G00950667)
+ *  pdhungan@.gmu.edu (G00979220)
  */
 import java.io.BufferedReader;
 import java.io.File;

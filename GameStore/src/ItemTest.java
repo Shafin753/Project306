@@ -1,5 +1,6 @@
 /**
  * This the testing class for item.java class
+ * @author Asraful Haque Shafin, Pratikchha Dhungana
  */
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.Assert.assertEquals;

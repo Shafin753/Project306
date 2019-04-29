@@ -5,7 +5,7 @@
  *  report. The program prompts for User and Item information if they are to be added. 
  *  @author Asraful Haque Shafin, Pratikchha Dhungana
  *  ashafin@gmu.edu (G00950667)
- *  pdhungan@.gmu.edu (G00979220)
+ *  pdhungan@gmu.edu (G00979220)
  */
 import java.io.BufferedReader;
 import java.io.File;
